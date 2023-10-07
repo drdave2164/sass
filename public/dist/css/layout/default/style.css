@@ -1,17 +1,82 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @use '../../lib/service.scss' as s;
- *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   src\layout\default\style.scss 1:1  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use '../../lib/service.scss' as s;\d\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src\\layout\\default\\style.scss 1:1  root stylesheet";
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
 }
+
+.section_content, .ad__section {
+  max-width: 1200px;
+  width: 100%;
+}
+@media all and (width < 1440px) {
+  .section_content, .ad__section {
+    max-width: 1100px;
+  }
+}
+@media all and (width < 1260px) {
+  .section_content, .ad__section {
+    max-width: 900px;
+  }
+}
+@media all and (width < 1000px) {
+  .section_content, .ad__section {
+    max-width: 700px;
+  }
+}
+@media all and (width < 620px) {
+  .section_content, .ad__section {
+    max-width: 500px;
+  }
+}
+
+.ad__section {
+  display: flex;
+  padding: 12px 0;
+  justify-content: space-between;
+}
+@media all and (width < 1260px) {
+  .ad__section {
+    display: grid;
+    justify-items: center;
+  }
+}
+
+.section__double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media all and (width < 1260px) {
+  .section__double {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer__section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: flex-start;
+  gap: 20px;
+}
+@media all and (width < 1260px) {
+  .footer__section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media all and (width < 1000px) {
+  .footer__section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media all and (width < 620px) {
+  .footer__section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.page {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-color: #f5f5f7;
+}
+
+/*# sourceMappingURL=style.css.map */
