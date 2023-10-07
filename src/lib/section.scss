@@ -1,0 +1,67 @@
+@use './space.scss' as s;
+@use './var.scss' as var;
+
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 0 s.space(4);
+}
+
+$contentSizeMap: (
+  desctop: 1100px,
+  laptop: 900px,
+  tablet: 700px,
+  mobile: 500px,
+);
+
+.section_content {
+  max-width: 1200px;
+  width: 100%;
+
+  @each $key, $value in var.$screenMap {
+    @media all and (width < $value) {
+      max-width: map-get($contentSizeMap, $key);
+    }
+  }
+}
+
+.ad__section {
+  @extend .section_content;
+
+  display: flex;
+  padding: s.space(3) 0;
+  justify-content: space-between;
+
+  @media all and (width < var.screen('laptop')) {
+    display: grid;
+    justify-items: center;
+  }
+}
+
+.section__double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media all and (width < var.screen('laptop')) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer__section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: flex-start;
+  gap: 20px;
+
+  @media all and (width < var.screen('laptop')) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media all and (width < var.screen('tablet')) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media all and (width < var.screen('mobile')) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
